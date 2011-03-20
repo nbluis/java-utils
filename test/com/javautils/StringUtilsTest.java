@@ -1,6 +1,9 @@
 package com.javautils;
 
-import junit.framework.Assert;
+import static com.javautils.StringUtils.lPad;
+import static com.javautils.StringUtils.rPad;
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.fail;
 
 import org.junit.Test;
 
@@ -9,87 +12,67 @@ public class StringUtilsTest {
 	@Test
 	public void testLPadInvalidParameters() {
 		try {
-			StringUtils.lPad(null, 0);
-			Assert.fail("deve retornar exception com um valor invalido");
+			lPad(null, 0);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 		try {
-			StringUtils.lPad(null, -5);
-			Assert.fail("deve retornar exception com um valor invalido");
+			lPad(null, -5);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 		try {
-			StringUtils.lPad("test", 0);
-			Assert.fail("deve retornar exception com um valor invalido");
+			lPad("test", 0);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 	}
 
 	@Test
 	public void testLPadNullValue() {
-		String actual = StringUtils.lPad(null, 2);
-		Assert.assertEquals("  ", actual);
-
-		actual = StringUtils.lPad(null, 5);
-		Assert.assertEquals("     ", actual);
-
-		actual = StringUtils.lPad(null, 5, 'T');
-		Assert.assertEquals("TTTTT", actual);
+		assertEquals("  ", lPad(null, 2));
+		assertEquals("     ", lPad(null, 5));
+		assertEquals("TTTTT", lPad(null, 5, 'T'));
 	}
 
 	@Test
 	public void testLPadWithValue() {
-		String actual = StringUtils.lPad("test", 2);
-		Assert.assertEquals("st", actual);
-
-		actual = StringUtils.lPad("test", 5);
-		Assert.assertEquals(" test", actual);
-
-		actual = StringUtils.lPad("test", 5, 'T');
-		Assert.assertEquals("Ttest", actual);
+		assertEquals("st", lPad("test", 2));
+		assertEquals(" test", lPad("test", 5));
+		assertEquals("Ttest", lPad("test", 5, 'T'));
 	}
 
 	@Test
 	public void testRPadInvalidParameters() {
 		try {
-			StringUtils.rPad(null, 0);
-			Assert.fail("deve retornar exception com um valor invalido");
+			rPad(null, 0);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 		try {
-			StringUtils.rPad(null, -5);
-			Assert.fail("deve retornar exception com um valor invalido");
+			rPad(null, -5);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 		try {
-			StringUtils.rPad("test", 0);
-			Assert.fail("deve retornar exception com um valor invalido");
+			rPad("test", 0);
+			fail("deve retornar exception com um valor invalido");
 		} catch (IllegalArgumentException e) {}
 
 	}
 
 	@Test
 	public void testRPadNullValue() {
-		String actual = StringUtils.rPad(null, 2);
-		Assert.assertEquals("  ", actual);
-
-		actual = StringUtils.rPad(null, 5);
-		Assert.assertEquals("     ", actual);
-
-		actual = StringUtils.rPad(null, 5, 'T');
-		Assert.assertEquals("TTTTT", actual);
+		assertEquals("  ", rPad(null, 2));
+		assertEquals("     ", rPad(null, 5));
+		assertEquals("TTTTT", rPad(null, 5, 'T'));
 	}
 
 	@Test
 	public void testRPadWithValue() {
-		String actual = StringUtils.rPad("test", 2);
-		Assert.assertEquals("te", actual);
-
-		actual = StringUtils.rPad("test", 5);
-		Assert.assertEquals("test ", actual);
-
-		actual = StringUtils.rPad("test", 5, 'T');
-		Assert.assertEquals("testT", actual);
+		assertEquals("te", rPad("test", 2));
+		assertEquals("test ", rPad("test", 5));
+		assertEquals("testT", rPad("test", 5, 'T'));
 	}
 
 }
