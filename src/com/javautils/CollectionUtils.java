@@ -11,6 +11,7 @@ public class CollectionUtils {
 	}
 
 	public static <V> List<List<V>> group(List<V> list, Comparator<V> comparator) {
+		if (list == null || comparator == null) throw new IllegalArgumentException("invalid parameter");
 		Collections.sort(list, comparator);
 		List<List<V>> returnList = new ArrayList<List<V>>();
 
@@ -29,6 +30,7 @@ public class CollectionUtils {
 	}
 
 	public static <V extends Comparable<V>> List<List<V>> group(List<V> list) {
+		if (list == null) throw new IllegalArgumentException("invalid parameter");
 		Collections.sort(list);
 		List<List<V>> returnList = new ArrayList<List<V>>();
 
