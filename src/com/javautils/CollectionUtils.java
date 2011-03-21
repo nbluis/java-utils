@@ -10,6 +10,14 @@ public class CollectionUtils {
 		// no instanciable
 	}
 
+	/**
+	 * Agrupa a os ítens da lista em sublistas distintas pelo comparador informado.
+	 * 
+	 * @param <V> tipo de dados da lista.
+	 * @param list registros a serem comparados
+	 * @param comparator que serve como base para a separacao dos ítens.
+	 * @return uma lista com listas de grupos encontrados na comparação.
+	 */
 	public static <V> List<List<V>> group(List<V> list, Comparator<V> comparator) {
 		if (list == null || comparator == null) throw new IllegalArgumentException("invalid parameter");
 		Collections.sort(list, comparator);
@@ -29,6 +37,13 @@ public class CollectionUtils {
 		return returnList;
 	}
 
+	/**
+	 * Agrupa a os ítens da lista em sublistas distintas a partir do comparador implementado na entidade da lista.
+	 * 
+	 * @param <V> tipo de dados da lista.
+	 * @param list registros a serem comparados
+	 * @return uma lista com listas de grupos encontrados na comparação.
+	 */
 	public static <V extends Comparable<V>> List<List<V>> group(List<V> list) {
 		if (list == null) throw new IllegalArgumentException("invalid parameter");
 		Collections.sort(list);

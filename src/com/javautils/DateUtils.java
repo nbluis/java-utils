@@ -6,6 +6,40 @@ import java.util.Date;
 public class DateUtils {
 	public DateUtils() {}
 
+	/**
+	* Returns a new {@code Date} object with the base date truncated from the given level.
+	* @param date the base-date.
+	* @param level the base level to truncate the date. It must be one of these values
+	* (examples using base date 30/mar/2010 15:27:32.567):<ul>
+	* <li>Calendar.YEAR: truncates from year up to milliseconds (01/jan/0001 00:00:00.000).</li>
+	* <li>Calendar.MONTH: truncates from month up to milliseconds (01/jan/2010 00:00:00.000).</li>
+	* <li>Calendar.DAY_OF_MONTH (or Calendar.DATE): truncates from day up to milliseconds (01/mar/2010 00:00:00.000).</li>
+	* <li>Calendar.HOUR: truncates hour, minute, second and millisecond (30/mar/2010 00:00:00.000).</li>
+	* <li>Calendar.MINUTE: truncates minute, second and millisecond (30/mar/2010 15:00:00.000).</li>
+	* <li>Calendar.SECOND: truncates second and millisecond (30/mar/2010 15:27:00.000).</li>
+	* <li>Calendar.MILLISECOND: truncates millisecond (30/mar/2010 15:27:32.000).</li>
+	* </ul>
+	* @return a new {@code Date} truncated as specified.
+	*/
+
+	/**
+	 * Trunca a data informada retornando um novo objeto {@link Date}.
+	 * 
+	 * @param date data a ser truncada.
+	 * @param level parametro base a ser truncado
+	 * Exemplo: com data base 30/03/2010 15:27:32.567)
+	 *	<ul>
+	 * 	<li>Calendar.YEAR: trunca a data a partir do ano (01/jan/0001 00:00:00.000).</li>
+	 * 	<li>Calendar.MONTH: trunca a data a partir do mes (01/jan/2010 00:00:00.000).</li>
+	 * 	<li>Calendar.DAY_OF_MONTH trunca adata a partir do dia (01/mar/2010 00:00:00.000).</li>
+	 * 	<li>Calendar.HOUR: trunca a data a partir da hora (30/mar/2010 00:00:00.000).</li>
+	 * 	<li>Calendar.MINUTE: trunca a data a partir do minuto (30/mar/2010 15:00:00.000).</li>
+	 * 	<li>Calendar.SECOND: trunca a data a partir do segundo (30/mar/2010 15:27:00.000).</li>
+	 * 	<li>Calendar.MILLISECOND: trunca a data a partir do milisegundo (30/mar/2010 15:27:32.000).</li>
+	 * 	</ul>
+	 * 
+	 * @return
+	 */
 	public static Date truncate(Date date, int level) {
 		if (date == null) throw new IllegalArgumentException("invalid date");
 		Calendar cal = Calendar.getInstance();
